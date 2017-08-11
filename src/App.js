@@ -25,8 +25,8 @@ class App extends Component {
     }
   }
 
-  hidePig = (e) =>{
-    let id = parseInt(e.target.attributes.name.value)
+  hidePig = (e) => {
+    let id = parseInt(e.target.attributes.name.value, 10)
     let newPigs = this.state.pigs.map(pig => {
       if(pig.id === id){
         pig.display = 'none'
@@ -67,8 +67,8 @@ class App extends Component {
     }, () => {
       let words = ['pigs', 'porky+pig', 'thatll+do+pig', 'miss+piggy']
       let num = [Math.floor(Math.random() * words.length) + 1]
-      let url = `http://api.giphy.com/v1/gifs/search?q=` + `${words[num]}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
-      let  headers = new Headers
+      let url = `http://api.giphy.com/v1/gifs/search?q=${words[num]}&api_key=f2d65e9d48754d739f8eabee2f011f0c`
+      let headers = new Headers()
       headers.set('Content-Type', 'application/json')
 
       let config = {
